@@ -34,10 +34,18 @@ void move(Coord3D *ppos, Coord3D *pvel, double dt){
 }
 
 Coord3D* createCoord3D(double x, double y, double z){
-    Coord3D temp = {x, y, z};
-    return &temp;
+    Coord3D* temp = new Coord3D{x, y, z};
+    return temp;
 }
 
 void deleteCoord3D(Coord3D *p){
     delete p;
+    p = NULL;
+}
+
+bool compare(Coord3D *p, Coord3D *q){
+    if(p -> x - q -> x < 0.0001 && p -> y - q -> y < 0.0001 && p -> z - q-> z < 0.001)
+        return true;
+    else
+        return false;
 }
