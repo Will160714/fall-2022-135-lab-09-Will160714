@@ -20,17 +20,9 @@ Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2){
 }
 
 void move(Coord3D *ppos, Coord3D *pvel, double dt){
-    double xPos = ppos -> x;
-    double yPos = ppos -> y;
-    double zPos = ppos -> z;
-
-    double xVel = pvel -> x;
-    double yVel = pvel -> y;
-    double zVel = pvel -> z;
-
-    xPos += xVel*dt;
-    yPos += yVel*dt;
-    zPos += zVel*dt;
+    ppos -> x += pvel -> x * dt;
+    ppos -> y += pvel -> y * dt;
+    ppos -> z += pvel -> z * dt;
 }
 
 Coord3D* createCoord3D(double x, double y, double z){
@@ -40,7 +32,6 @@ Coord3D* createCoord3D(double x, double y, double z){
 
 void deleteCoord3D(Coord3D *p){
     delete p;
-    p = NULL;
 }
 
 bool compare(Coord3D *p, Coord3D *q){
